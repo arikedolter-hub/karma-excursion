@@ -82,7 +82,7 @@
   <div class="wrap">
     <div class="brand">
       <!-- logo.png sits next to index.html -->
-      <img src="logo.png" alt="Karma Supermarket" onerror="this.replaceWith(document.createTextNode('Karma'))">
+      <img src="logo.png" alt="Karma Supermarket" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='images/logo.png'}else{this.replaceWith(document.createTextNode('Karma'))}">
     </div>
     <h1>A day at Karma</h1>
     <p>Students of [School Name] stepped inside Karma Supermarket on [Date] to see how a real supermarket works. Watch the video and browse the photos.</p>
@@ -124,16 +124,19 @@
 
 <script>
   // Set this to how many photos you uploaded (photo1.jpg ... photoN.jpg)
-  var TOTAL = 12;
+  var TOTAL = 35;
   var gallery = document.getElementById('gallery');
   var lb = document.getElementById('lb'), lbImg = lb.querySelector('img'), cur = 0;
 
-  for (var i = 1; i <= TOTAL; i++) {
+  var EXTS = ['jpg','jpeg','png','JPG','JPEG','PNG','webp'];
+  function addPhoto(i) {
     var a = document.createElement('a');
-    a.href = 'photos/photo' + i + '.jpg';
     var img = document.createElement('img');
-    img.src = a.href; img.loading = 'lazy'; img.alt = 'Excursion photo ' + i;
-    img.onerror = (function (el) { return function () { el.remove(); }; })(a);
+    var k = 0;
+    function set() { a.href = img.src = 'photos/photo' + i + '.' + EXTS[k]; }
+    img.loading = 'lazy'; img.alt = 'Excursion photo ' + i;
+    img.onerror = function () { k++; if (k < EXTS.length) set(); else a.remove(); };
+    set();
     a.appendChild(img);
     a.addEventListener('click', function (e) {
       e.preventDefault();
@@ -142,6 +145,7 @@
     });
     gallery.appendChild(a);
   }
+  for (var i = 1; i <= TOTAL; i++) addPhoto(i);
   function show() {
     var n = gallery.children.length;
     if (!n) return;
