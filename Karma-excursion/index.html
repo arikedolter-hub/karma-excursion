@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>School Excursion to Karma Supermarket</title>
-<link rel="icon" href="images/logo.png">
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -19,13 +19,13 @@
   h1,h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0;line-height:1}
 
   /* Hero */
-  .hero{position:relative;background:linear-gradient(135deg,rgba(255,179,71,.85) 0%,rgba(255,122,26,.8) 45%,rgba(240,69,15,.9) 100%),url("images/header.jpg") center/cover no-repeat;padding:28px 20px 150px;overflow:hidden}
+  .hero{position:relative;background:linear-gradient(135deg,rgba(255,179,71,.85) 0%,rgba(255,122,26,.8) 45%,rgba(240,69,15,.9) 100%),url("header.jpg") center/cover no-repeat;padding:28px 20px 150px;overflow:hidden}
   .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
   .hero::before{width:520px;height:520px;right:-140px;top:-160px;background:rgba(255,255,255,.18)}
   .hero::after{width:300px;height:300px;left:-90px;bottom:-110px;background:rgba(37,16,10,.12)}
   .wrap{max-width:1040px;margin:0 auto;position:relative;z-index:1}
   .brand{display:flex;align-items:center;gap:12px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.6rem}
-  .brand img{height:52px;width:auto;display:block}
+  .brand img{height:88px;width:auto;display:block;background:#fff;border-radius:18px;padding:8px}
   .hero h1{font-size:clamp(2.8rem,10vw,6.4rem);font-weight:800;margin-top:clamp(40px,9vw,90px);letter-spacing:-.02em;max-width:11ch}
   .hero p{max-width:46ch;font-size:1.15rem;margin:22px 0 30px;font-weight:500}
   .btns{display:flex;gap:12px;flex-wrap:wrap}
@@ -81,11 +81,11 @@
 <header class="hero">
   <div class="wrap">
     <div class="brand">
-      <!-- Put your Karma logo at: images/logo.png -->
-      <img src="images/logo.png" alt="Karma Supermarket" onerror="this.replaceWith(document.createTextNode('Karma'))">
+      <!-- logo.png sits next to index.html -->
+      <img src="logo.png" alt="Karma Supermarket" onerror="this.replaceWith(document.createTextNode('Karma'))">
     </div>
     <h1>A day at Karma</h1>
-    <p>Students of Priscilla School stepped inside Karma Supermarket on 16, October Friday, 2026. to see how a real supermarket works. Watch the video and browse the photos.</p>
+    <p>Students of [School Name] stepped inside Karma Supermarket on [Date] to see how a real supermarket works. Watch the video and browse the photos.</p>
     <div class="btns">
       <a class="btn dark" href="#video">Watch the video</a>
       <a class="btn light" href="#photos">See the photos</a>
@@ -112,7 +112,7 @@
 </section>
 
 <footer>
-  <p>Photos and video by <b>Karma Media Team</b>. Thank you, Karma Supermarket, for hosting us.</p>
+  <p>Photos and video by <b>[Your Name]</b>. Thank you, Karma Supermarket, for hosting us.</p>
 </footer>
 
 <div id="lb" role="dialog" aria-label="Photo viewer">
@@ -124,7 +124,7 @@
 
 <script>
   // Set this to how many photos you uploaded (photo1.jpg ... photoN.jpg)
-  var TOTAL = 35;
+  var TOTAL = 12;
   var gallery = document.getElementById('gallery');
   var lb = document.getElementById('lb'), lbImg = lb.querySelector('img'), cur = 0;
 
